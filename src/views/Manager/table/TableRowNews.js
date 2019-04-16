@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "moment/locale/vi"
 import Moment from 'moment';
-import { StringDecoder } from 'string_decoder';
+
 class TableRowNews extends Component {
     Delete = (id) => {
         //console.log(id);

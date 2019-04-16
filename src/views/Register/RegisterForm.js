@@ -17,30 +17,30 @@ const RegisterForm = ({ handleSubmit, isRegisterFailed, isUsernameCorrect, isPas
 
         <fieldset>
           <div className="form-group">
-            <div className="input-group input-group-lg">
+            <div className="input-group input-group-lg" style={{display:'table'}}>
               <Field component={TextField}
 
                 name="name" type="text"
                 className="form-control"
                 placeholder="NAME"
-                style={{width:'26em'}}
+                style={{display:'table-cell',width:'100%'}}
               />
             </div>
           </div>
           <div className="form-group">
-            <div className="input-group input-group-lg">
+            <div className="input-group input-group-lg" style={{display:'table'}}>
               <Field component={TextField}
 
                 name="username" type="text"
                 className="form-control"
                 placeholder="USERNAME"
-                style={{width:'26em'}}
+                style={{display:'table-cell',width:'100%'}}
               />
               {isUsernameCorrect ? (<span></span>) : (<span>Username is invalid (must be 4-30 characters)</span>)}
             </div>
           </div>
           <div className="form-group">
-            <div className="input-group input-group-lg">
+            <div className="input-group input-group-lg" style={{display:'table'}}>
               <Field
                 component={TextField}
 
@@ -48,13 +48,13 @@ const RegisterForm = ({ handleSubmit, isRegisterFailed, isUsernameCorrect, isPas
                 type="email"
                 className="form-control"
                 placeholder="EMAIL"
-                style={{width:'26em'}}
+                style={{display:'table-cell',width:'100%'}}
               />
 
             </div>
           </div>
           <div className="form-group">
-            <div className="input-group input-group-lg">
+            <div className="input-group input-group-lg" style={{display:'table'}}>
               <Field
                 component={TextField}
 
@@ -62,7 +62,7 @@ const RegisterForm = ({ handleSubmit, isRegisterFailed, isUsernameCorrect, isPas
                 type="password"
                 className="form-control"
                 placeholder="PASSWORD"
-                style={{width:'26em'}}
+                style={{display:'table-cell',width:'100%'}}
               />
               {isPasswordCorrect ? (<span></span>) : (<span>Password must be at least 6 characters</span>)}
             </div>

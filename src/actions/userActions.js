@@ -1,7 +1,7 @@
 import * as types from '../Config/authConstant';
 import API from '../utils/api';
 import history from '../Config/history';
-import { timeout } from 'q';
+import axios from 'axios'
 
 export const getUser = () => async (dispatch) => {
   const user = JSON.parse(localStorage.getItem('authentication'));
@@ -28,7 +28,9 @@ const loginRequest = (userID) => async (dispatch) => {
 export const login = (usernameOrEmail, password) => async (dispatch) => {
   try {
     const { data } = await API.post('/auth/signin', { usernameOrEmail, password })
-    await localStorage.setItem('token', data.accessToken)
+    await localStorage.setItem('accessToken', data.accessToken)
+    
+   // window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('accessToken')
     dispatch({ type: types.LOGIN_SUCCESS, payload: data })
     dispatch(loginRequest(data.userID))
   } catch (err) {

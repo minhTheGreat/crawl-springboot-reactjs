@@ -9,6 +9,7 @@ export const FETCH_NEWS = 'FETCH_NEWS';
 export const GET_NEWS='GET_NEWS';
 export const DELETE_NEW='DELETE_NEW';
 export const CRAWLER = 'CRAWLER';
+export const HOME ='HOME';
 //
 export const DELETE_CATEGORY='DELETE_CATEGORY';
 export const FETCH_CATEGORY='FETCH_CATEGORY';

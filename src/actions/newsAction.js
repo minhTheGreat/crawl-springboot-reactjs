@@ -33,29 +33,12 @@ export const actCrawlNewsRequest = (id) => async dispatch => {
     }
 }
 
+//get news in homepage
+export const actGetHomeNews=()=> async dispatch=>{
+    try{
+       const {data}= await API.get(`/home/getall`)
+        dispatch({type:Types.HOME,news:data})
+    }catch(err){
 
-{/* xoa data tren sever sau do tren stogre*/ }
-
-export const deleteNewStore = (id) => {
-    return {
-        type: Types.DELETE_NEW,
-        id: id
     }
-}
-export const deleteNewsRequest = (id) => {
-    return (dispath) => {
-        return API.delete(`new/${id}`).then(reps => {
-            dispath(deleteNewStore(id))
-        });
-    };
-}
-export const addNewsRequest = (news) => {
-    return (dispath) => {
-        return API.post('new', news).then(reps => {
-            console.log(reps);
-            if (reps.status === 200) {
-                alert('Them thanh cong');
-            }
-        });
-    };
 }

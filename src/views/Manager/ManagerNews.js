@@ -48,7 +48,7 @@ export class ManagerNews extends Component {
     //   this.props.onFindUser(this.state.keyword);
 
   }
-  tabRow(news, currentPage) {
+  tabRow=(news, currentPage) =>{
     return news.map((object, i) => {
       return <TableRowNews news={object} key={i} index={i + (currentPage - 1) * 20} onDelete={this.onDelete} />
     })
@@ -72,16 +72,17 @@ export class ManagerNews extends Component {
         <div className="row">
           <div className="col-lg-7">
             <p className="bs-component ">
-              <div>
-                <input className="btn btn-primary btn-right" type="button" value="+ Thêm" onClick={this.onCrawl} />
-                <select onChange={this.onChange} className="" id="" style={{ borderRadius: '3px', borderWidth: '2px', width: '20em', padding: '7px 12px', margin: '1em', lineHeight: '21px' }}>
+              <ul style={{display:'flex'}}>
+                <li> <input className="btn btn-primary btn-right" type="button" value="+ Thêm" onClick={this.onCrawl} style={{marginTop:'1em'}}/></li>
+                <li> <select onChange={this.onChange} className="" id="" style={{ borderRadius: '3px', borderWidth: '2px', width: '20em', padding: '7px 12px', margin: '1em', lineHeight: '21px' }}>
                   <option value="0">Chọn chuyên mục cần lấy</option>
                   <option value="18">Thời sự</option>
                   <option value="2">Kinh tế</option>
                   <option value="1">Kinh doanh</option>
                   <option value="19">Thế giới</option>
                 </select>
-              </div>
+                </li>
+              </ul>
             </p>
           </div>
           <div className="col-md-12">

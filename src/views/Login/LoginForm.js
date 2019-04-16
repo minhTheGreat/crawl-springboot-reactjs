@@ -14,8 +14,8 @@ const LoginForm = ({ handleSubmit, isLoginFailed, isEmailCorrect, isPasswordCorr
             <div className="newsletter-widget" style={{padding:'2em',borderRadius:'1em'}}>
                 <h2 className="panel-title" style={{ textAlign: 'center',color:'white',padding:'1em 0' }}>Login</h2>
                 <fieldset>
-                    <div className="form-group">
-                        <div className="input-group input-group-lg" >
+                    <div className="form-group" style={{width:'100%'}}>
+                        <div className="input-group input-group-lg" style={{display:'table'}}>
                            
                             <Field component={TextField}
                                 isError={isLoginFailed}
@@ -23,13 +23,13 @@ const LoginForm = ({ handleSubmit, isLoginFailed, isEmailCorrect, isPasswordCorr
                                 type="text"
                                 className="form-control"
                                 placeholder="USERNAME"
-                                style={{width:'26.5em'}}
+                                style={{display:'table-cell',width:'100%',marginBottom:'0.5em'}}
                             />
                             {isEmailCorrect ? (<span></span>) : (<span>Email is invalid</span>)}
                         </div>
                     </div>
                     <div className="form-group">
-                        <div className="input-group input-group-lg">
+                        <div className="input-group input-group-lg" style={{display:'table'}}>
                           
                             <Field component={TextField}
                                 isError={isLoginFailed}
@@ -37,7 +37,7 @@ const LoginForm = ({ handleSubmit, isLoginFailed, isEmailCorrect, isPasswordCorr
                                 type="password"
                                 className="form-control"
                                 placeholder="PASSWORD"
-                                style={{width:'26.5em'}}
+                                style={{display:'table-cell',width:'100%'}}
                             />
                             {isPasswordCorrect ? (<span></span>) : (<span>Password must be at least 6 characters</span>)}
                         </div>

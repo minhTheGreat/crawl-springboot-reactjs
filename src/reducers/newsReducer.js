@@ -39,6 +39,11 @@ const news = (state = initalState, action) => {
             return [...state]
         case Types.CRAWLER:
             return [...state]
+        case Types.HOME:
+            return {
+                ...state,
+                news: action.news
+            }
         default:
             return state;
 

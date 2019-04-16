@@ -15,7 +15,7 @@ import {
   const initialState = isLogin ? { loggedIn: true } : { loggedIn: false }
   
   export default function authentication(state = initialState, action) {
-  
+    console.log("auth--------",action)
     switch (action.type) {
       case GET_USER:
         return {
