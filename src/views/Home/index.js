@@ -7,7 +7,7 @@ import Footer from './Footer';
 export default class Home extends Component {
     render() {
         return (
-            <div>
+            <div style={{fontFamily:"Bookman, Tahoma, Verdana"}}>
                 <div class="top-header-area">
                     <div class="container">
                         <div class="row">

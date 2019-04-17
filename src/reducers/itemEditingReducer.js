@@ -6,6 +6,8 @@ const itemEditing =(state=initialState,action)=>{
     switch(action.type){
         case Types.EDIT_USER:
             return action.user;
+        case Types.EDIT_CATEGORY:
+            return action.payload;
         default: return state;
     }
 }

@@ -17,10 +17,10 @@ class Header extends Component {
     }
     render() {
         return (
-            <div>
+          
                 <header className="app-header"><a className="app-header__logo" href="index.html">YoungNews</a>
                     {/* Sidebar toggle button*/}
-                    <Link className="app-sidebar__toggle" to="/manager" data-toggle="sidebar" aria-label="Hide Sidebar" />
+                    <a className="app-sidebar__toggle" href="/manager" data-toggle="sidebar" aria-label="Hide Sidebar" />
                     {/* Navbar Right Menu*/}
                     <ul className="app-nav">
                         <li className="app-search">
@@ -38,7 +38,7 @@ class Header extends Component {
                     </ul>
                 </header>
 
-            </div>
+      
         )
     }
 }

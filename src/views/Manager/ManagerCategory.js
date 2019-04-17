@@ -22,7 +22,7 @@ export class ManagerCategory extends Component {
     await this.props.actions.actFetchCategory(numPage - 1, 10);
   }
   onDelete = (id) => {
-    this.props.deleteCategory(id);
+    this.props.actions.deleteCategoryRequest(id);
 
   }
   tabRow(categories,currentPage){

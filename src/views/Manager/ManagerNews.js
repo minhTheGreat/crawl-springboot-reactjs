@@ -21,7 +21,7 @@ export class ManagerNews extends Component {
   }
 
   onDelete = (id) => {
-    this.props.actions.deleteNewsRequest(id);
+    this.props.actions.actDeleteNews(id);
   }
   changeCurrentPage = async (numPage) => {
     await this.setState({ currentPage: numPage });
@@ -77,7 +77,7 @@ export class ManagerNews extends Component {
                 <li> <select onChange={this.onChange} className="" id="" style={{ borderRadius: '3px', borderWidth: '2px', width: '20em', padding: '7px 12px', margin: '1em', lineHeight: '21px' }}>
                   <option value="0">Chọn chuyên mục cần lấy</option>
                   <option value="18">Thời sự</option>
-                  <option value="2">Kinh tế</option>
+                  <option value="20">Giải trí</option>
                   <option value="1">Kinh doanh</option>
                   <option value="19">Thế giới</option>
                 </select>

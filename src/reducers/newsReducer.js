@@ -5,18 +5,19 @@ var initalState = {
     news: [],
     totalPages: 1,
 };
-var findIndex = (state, id) => {
+var findIndex = (news, id) => {
     var result = -1;
-    state.forEach((state, index) => {
-        if (state.id.newsId === id) {
+    news.forEach((newz, index) => {
+        if (newz.id === id) {
             result = index;
         }
     });
-    console.log(result);
+  
     return result;
 }
 const news = (state = initalState, action) => {
-    console.log("------news", action)
+   var index=-1
+   console.log("-------news",action)
     switch (action.type) {
         case Types.FETCH_NEWS:
             return {
@@ -31,12 +32,13 @@ const news = (state = initalState, action) => {
                 news: [...state],
                
             }
-        case Types.DELETE_NEW:
-            var id = action.id;
-            var index = findIndex(state, id);
-            console.log(state)
-            state.splice(index, 1);
-            return [...state]
+        case Types.DELETE_NEWS:       
+            index = findIndex(state.news,action.payload);
+            state.news.splice(index,1);
+            return {
+                ...state,
+                news:[...state.news]
+            }
         case Types.CRAWLER:
             return [...state]
         case Types.HOME:

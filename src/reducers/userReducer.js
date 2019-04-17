@@ -45,7 +45,7 @@ const users = (state = initialState, action) => {
         case Types.UPDATE_USER:
             index=findIndex(state.users,action.user.id)
             state.users[index]=action.user;
-            console.log("update----",user)
+           
             return {
                 ...state,
                 users:[...state.users],

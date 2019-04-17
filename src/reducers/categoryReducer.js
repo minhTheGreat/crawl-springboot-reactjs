@@ -16,6 +16,8 @@ var initalState = {
 };
 
 const category = (state = initalState, action) => {
+    var index=-1;
+    const{id}=action
     switch (action.type) {
         case types.FETCH_CATEGORY:
            return{
@@ -23,11 +25,26 @@ const category = (state = initalState, action) => {
                category: action.content,
                totalPages: action.totalPages
            }
+        case types.ADD_CATEGORY:
+           return{
+               ...state,
+               category: [action.payload,...state.category]
+           }
+        case types.UPDATE_CATEGORY:
+        index=findIndex(state.category,action.payload.id)
+        state.category[index]=action.cates
+           return{
+               ...state,
+               category:[...state.category]
+           }
         case types.DELETE_CATEGORY:
-            var { id } = action;
-            var index = findIndex(state, id);
-            state.splice(index, 1);
-            return [...state]
+            index= findIndex(state.category,id)
+            state.category.splice(index, 1);
+            return {
+                ...state,
+                category:[...state.category]
+            }
+        
 
         default:
             return state;

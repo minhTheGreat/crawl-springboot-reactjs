@@ -7,7 +7,7 @@ class TableRowNews extends Component {
     Delete = (id) => {
         //console.log(id);
         if (confirm('Ban chac muon xoa')) {//eslint-disable-line
-            this.props.Delete(id);
+            this.props.onDelete(id);
         }
 
     }
@@ -32,6 +32,7 @@ class TableRowNews extends Component {
                         to={`/manager/news/${news.id}/edit`}
                     >
                         Sửa </Link>
+                    &nbsp;
                     <button type="button"
                         className="btn  btn-warning"
                         onClick={() => this.Delete(news.id)}

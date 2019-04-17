@@ -8,7 +8,7 @@ class TableRowCate extends Component {
   {
       //console.log(id);
       if(confirm('Ban chac muon xoa')){//eslint-disable-line
-          this.props.Delete(id);
+          this.props.onDelete(id);
       }
       
   }
@@ -27,13 +27,14 @@ class TableRowCate extends Component {
         <td>
           <Link
             className="btn btn-primary"
-            to={`/manager/category/edit`}
+            to={`/manager/category/${category.id}/edit`}
           >
             Sửa </Link>
+          &nbsp;
             <button type="button" 
                                 className="btn  btn-warning"
-                                onClick={()=>this.Delete()} 
-                        >Xoa</button>
+                                onClick={()=>this.Delete(category.id)} 
+                        >Xóa</button>
 
         </td>
       </tr>

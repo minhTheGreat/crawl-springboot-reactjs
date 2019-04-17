@@ -13,29 +13,34 @@ export const actFetchCategory = (currentPage, size) => async dispatch => {
 
 
 }
-{/* xoa data tren sever sau do tren stogre*/ }
 
+//delete
 export const deleteCategoryStore = (id) => {
     return {
         type: Types.DELETE_CATEGORY,
-        id: id
+        id
     }
 }
 export const deleteCategoryRequest = (id) => {
     return (dispath) => {
-        return API.delete(`category/${id}`).then(reps => {
+        return API.delete(`/category/${id}`).then(res => {
             dispath(deleteCategoryStore(id))
         });
     };
 }
-export const addCategoryRequest = (category) => {
-    return (dispath) => {
-        return API.post('category', category).then(reps => {
-            console.log(reps);
-            if (reps.status === 201) {
-                alert('Them thanh cong');
-            }
-            //console.log(user) 
-        });
-    };
+//get new category
+export const actAddCate=(cate)=> async dispatch=>{
+  const {data}= await API.post(`/category/addcategories`,cate)
+  dispatch({type:Types.ADD_CATEGORY,payload:data.cates})
+  dispatch(actFetchCategory(0,5))
+}
+//update
+export const actUpdateCate=(id,cate)=>async dispatch=>{
+const {data}= await API.put(`/category/${id}`,cate)
+dispatch ({type:Types.UPDATE_CATEGORY,payload:data.cates})
+}
+//get a category to edit
+export const actEditCate= id=> async dispatch=>{
+    const {data} = await API.get(`/category/${id}`)
+    dispatch({type:Types.EDIT_CATEGORY,payload:data})
 }

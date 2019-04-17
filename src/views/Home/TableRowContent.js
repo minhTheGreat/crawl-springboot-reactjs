@@ -43,10 +43,14 @@ export default class TableRowContent extends Component {
                             <p class="post-date">{Moment(newz.createdAt).format('MMM Do YY')}</p>
                         </div>
                     </div>
-                    <Modal open={this.state.open} onClose={this.onClosePopup}>
-                        <a href={newz.link} ><img src={chain}/>&nbsp; Link đến trang nguồn</a>
+                    <Modal open={this.state.open} onClose={this.onClosePopup} styles={modals} >
+                        <div >
+                        <a href={newz.link} style={{backgroundColor:'#63B8FF',padding:'10px',borderRadius:'5px',color:'#fff'}}>
+                        <img src={chain} style={{verticalAlign:'middle'}}/>&nbsp; Link đến trang nguồn</a>
+                        </div>
                         <br/>
-                        <h1 style={{borderTop:'1px solid #999',margin:'15px 0'}}><div dangerouslySetInnerHTML={{ __html: newz.title }} /></h1>
+                        <h1 style={{borderTop:'0.5px solid #ddd',padding:'10px 0',fontFamily:"Bookman, Tahoma, Verdana"}}>
+                        <div dangerouslySetInnerHTML={{ __html: newz.title }} /></h1>
                         <p >
                             <div dangerouslySetInnerHTML={{ __html: newz.content }} style={style}/>
                         </p>
@@ -61,6 +65,17 @@ export default class TableRowContent extends Component {
 }
 const style = {
     margin:'0 auto',
-    width:'600px',
- 
+    padding:'10px',
+    width:'100%',
+    textAlign:'justify',
+    fontColor:'#000',
+    fontFamily:"Bookman, Tahoma, Verdana",
+    
+}
+const modals={
+    modal:{
+        borderRadius:'9px',
+        width:'700px',
+    }
+    
 }

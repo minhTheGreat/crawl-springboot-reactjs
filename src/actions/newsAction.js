@@ -42,3 +42,12 @@ export const actGetHomeNews=()=> async dispatch=>{
 
     }
 }
+//delete news
+export const actDeleteNews= id => async dispatch =>{
+    try{
+        await API.delete(`/news/${id}`)
+        dispatch({type:Types.DELETE_NEWS,payload:id})
+    }catch(err){
+
+    }
+}

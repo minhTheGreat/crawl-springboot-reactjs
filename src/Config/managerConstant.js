@@ -7,9 +7,12 @@ export const FIND_USER ='FIND_USER'
 // type NEW AND CATEGORY
 export const FETCH_NEWS = 'FETCH_NEWS';
 export const GET_NEWS='GET_NEWS';
-export const DELETE_NEW='DELETE_NEW';
+export const DELETE_NEWS='DELETE_NEWS';
 export const CRAWLER = 'CRAWLER';
 export const HOME ='HOME';
 //
+export const ADD_CATEGORY='ADD_CATEGORY';
+export const UPDATE_CATEGORY='UPDATE_CATEGORY';
+export const EDIT_CATEGORY ='EDIT_CATEGORY';
 export const DELETE_CATEGORY='DELETE_CATEGORY';
 export const FETCH_CATEGORY='FETCH_CATEGORY';
