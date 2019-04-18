@@ -21,18 +21,48 @@ export const actFetchNews = (news, totalPages, totalElement) => {
     }
 }
 //crawl news
-export const actCrawlNewsRequest = (id) => async dispatch => {
+export const actCrawlNewsVnexpress = (id) => async dispatch => {
 
     try {
         await API.get(`/news/crawl/${id}`)
         dispatch(actFetchNewsRequest(0,20))
         dispatch({ type: Types.CRAWLER })
-        history.push('/manager')
+      
     } catch (err) {
 
     }
 }
+export const actCrawlNewsDantri=(id)=> async dispatch=>{
+    try{
+        await API.get(`/news/crawl/dantri/${id}`)
+        dispatch(actFetchNewsRequest(0,20))
+        dispatch({ type: Types.CRAWLER })
+        
+    }catch(err){
 
+    }
+}
+
+
+//delete news
+export const actDeleteNews= id => async dispatch =>{
+    try{
+        await API.delete(`/news/${id}`)
+        dispatch({type:Types.DELETE_NEWS,payload:id})
+    }catch(err){
+
+    }
+}
+//find category by source id
+export const actFetchCategory=id=> async dispatch=>{
+    try{
+        const {data}= await API.get(`/news/getcategory/${id}`)
+        dispatch({type:Types.FIND_CATEGORY_BYSOURCEID,categories:data})
+    }catch{
+
+    }
+}
+//---------------HOME------------------
 //get news in homepage
 export const actGetHomeNews=()=> async dispatch=>{
     try{
@@ -42,11 +72,20 @@ export const actGetHomeNews=()=> async dispatch=>{
 
     }
 }
-//delete news
-export const actDeleteNews= id => async dispatch =>{
+//slice right
+export const actGetSlice=()=> async dispatch=>{
     try{
-        await API.delete(`/news/${id}`)
-        dispatch({type:Types.DELETE_NEWS,payload:id})
+        const {data}= await API.get(`/home/slice`)
+        dispatch({type:Types.SLICE,slice:data})
+    }catch(err){
+
+    }
+}
+//slice center
+export const actGetSliceCenter=()=> async dispatch=>{
+    try{
+        const {data}= await API.get(`/home/slicecenter`)
+        dispatch({type:Types.SLICE_CENTER,slicec:data})
     }catch(err){
 
     }

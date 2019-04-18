@@ -1,22 +1,41 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import Pagination from '../../pagination/Pagination'
+import TableRowSource from './table/TableRowSource'
+import * as SourceAct from '../../actions/sourceAction'
+import { bindActionCreators } from 'redux';
 export class ManagerSources extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-
+          currentPage:1
         }
+    }
+    componentDidMount(){
+      this.props.actions.actFetchSource(this.state.currentPage-1,5);
+    }
+    onDelete= id =>{
+ //     this.props.actions.onDeleteSource(id)
+    }
+    changeCurrentPage= async (numPage)=>{
+      await this.state({currentPage:numPage});
+      await this.props.actions.actFetchSource(numPage-1,5);
+    }
+    tabRow(sources,currentPage){
+      return sources.map((source,i)=>{
+        return <TableRowSource source={source} key={i} index={i+(currentPage-1)*5} onDelete={this.onDelete}/>
+      })
     }
 
 
     render() {
+      
         return (
             <div>
             <div class="app-title">
             <div>
-              <h1><i class="fa fa-address-card-o"></i>&nbsp; Quản lí nghề nghiệp</h1>
+              <h1><i class="fa fa-address-card-o"></i>&nbsp; Quản lí nguồn tin</h1>
               <p></p>
             </div>
             <ul class="app-breadcrumb breadcrumb">
@@ -29,7 +48,7 @@ export class ManagerSources extends Component {
             <div class="col-lg-7">
                 <p class="bs-component ">
                   <a href="addjob.html">
-                    <button class="btn btn-primary btn-right" type="button">+ Thêm</button>
+                  
                   </a>
                 </p>
             </div>
@@ -40,30 +59,23 @@ export class ManagerSources extends Component {
                     <thead>
                       <tr>
                         <th>STT</th>
-                        <th>Tên nghề</th>
-                        <th>Ảnh</th>
-                        <th>Thành phố</th>
-                        <th>Lương</th>
-                        <th>Ghi chú</th>
+                        <th>ID</th>
+                        <th>Tên chuyên mục</th>
+                        <th>Link</th>
+                        <th>Cho phép</th>
                         <th>Thực hiện</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th>1</th>
-                        <td>Java Web</td>
-                        <td>https://link.com</td>
-                        <td>Hà nội</td>
-                        <td>20000000</td>
-                        <td>note</td>
-                        <td>
-                          <a href="editjob.html"><i class="fa fa-lg fa-edit"></i></a> &nbsp
-                          <a href="#"><i class="fa fa-lg fa-trash"></i></a>
-                        </td>
-                      </tr>
-                    
+                     {this.tabRow(this.props.source,this.state.currentPage)}
                     </tbody>
                   </table>
+                  <Pagination
+                  currentPage={this.state.currentPage}
+                  totalPages={this.props.totalPages}
+                  changeCurrentPage={this.changeCurrentPage}
+                  theme="default"
+                />
                 </div>
               </div>
             </div>
@@ -74,11 +86,12 @@ export class ManagerSources extends Component {
 }
 
 const mapStateToProps = (state) => ({
-
+ source :state.sources.sources,
+ totalPages: state.sources.totalPages
 })
 
-const mapDispatchToProps = {
-
-}
+const mapDispatchToProps = dispatch=>({
+  actions: bindActionCreators(SourceAct,dispatch)
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManagerSources)

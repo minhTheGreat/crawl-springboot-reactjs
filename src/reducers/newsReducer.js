@@ -3,6 +3,8 @@ import * as Types from '../Config/managerConstant';
 
 var initalState = {
     news: [],
+    slice:[],
+    slicec:[],
     totalPages: 1,
 };
 var findIndex = (news, id) => {
@@ -24,12 +26,14 @@ const news = (state = initalState, action) => {
                 ...state,
                 news: action.news,
                 totalPages: action.totalPages,
+                loading:false
              
             }
         case Types.CRAWLER:
             return {
                 ...state,
                 news: [...state],
+                loading:false
                
             }
         case Types.DELETE_NEWS:       
@@ -45,6 +49,16 @@ const news = (state = initalState, action) => {
             return {
                 ...state,
                 news: action.news
+            }
+        case Types.SLICE:
+            return{
+                ...state,
+                slice: action.slice
+            }
+        case Types.SLICE_CENTER:
+            return{
+                ...state,
+                slicec: action.slicec
             }
         default:
             return state;

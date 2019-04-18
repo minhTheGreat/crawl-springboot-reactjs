@@ -1,4 +1,5 @@
 import * as types from '../Config/managerConstant';
+
 var findIndex = (category, id) => {
     var result = -1;
     category.forEach((category, index) => {
@@ -18,6 +19,7 @@ var initalState = {
 const category = (state = initalState, action) => {
     var index=-1;
     const{id}=action
+    console.log("cate----",action)
     switch (action.type) {
         case types.FETCH_CATEGORY:
            return{
@@ -43,6 +45,11 @@ const category = (state = initalState, action) => {
             return {
                 ...state,
                 category:[...state.category]
+            }
+        case types.FIND_CATEGORY_BYSOURCEID:
+            return{
+                ...state,
+                category:[...action.categories]
             }
         
 

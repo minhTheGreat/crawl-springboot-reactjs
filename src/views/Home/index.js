@@ -4,10 +4,11 @@ import '../../styles/style/js/active';
 
 import Content from './Content';
 import Footer from './Footer';
+import Slide from './Slide';
 export default class Home extends Component {
     render() {
         return (
-            <div style={{fontFamily:"Bookman, Tahoma, Verdana"}}>
+            <div style={{ fontFamily: "Bookman, Tahoma, Verdana" }}>
                 <div class="top-header-area">
                     <div class="container">
                         <div class="row">
@@ -41,15 +42,15 @@ export default class Home extends Component {
 
                                     <div class="classynav">
                                         <ul>
-                                            <li class="active"><a href="catagory.html">Top 10</a></li>
-                                            <li><a href="index.html">Funny</a></li>
-                                            <li><a href="index.html">Videos</a></li>
-                                            <li><a href="index.html">Don’t Miss</a></li>
-                                            <li><a href="#">Mega Menu</a>
+                                            <li class="active"><a href="catagory.html">Thời sự</a></li>
+                                            <li><a href="index.html">Thế giới</a></li>
+                                            <li><a href="index.html">Kinh doanh</a></li>
+                                            <li><a href="index.html">Giải trí</a></li>
+                                            <li><a href="#">Thể thao</a>
                                             </li>
                                         </ul>
                                         <div class="add-post-button">
-                                            <a href="#" class="btn add-post-btn">Add Post</a>
+                                            <a href="#" class="btn add-success-btn">Login</a>
                                         </div>
 
                                     </div>
@@ -63,11 +64,6 @@ export default class Home extends Component {
                         <div class="row">
                             <div class="col-12">
                                 <div class="hero-slides owl-carousel">
-                                   
-
-                                    
-
-                                  
                                 </div>
                             </div>
 
@@ -80,49 +76,14 @@ export default class Home extends Component {
                             <div class="col-12">
                                 <div class="welcome-slides owl-carousel">
 
-                                    <div class="single-welcome-slide">
-                                        <div class="row no-gutters">
-                                            <div class="col-12 col-lg-8">
-                                                <div class="welcome-post">
-                                                    <img src="img/bg-img/bg1.jpg" alt="" />
-                                                    <div class="post-content" data-animation="fadeInUp" data-duration="500ms">
-                                                        <a href="#" class="tag">Travel</a>
-                                                        <a href="#" class="post-title">10 Tips to travel in style for less</a>
-                                                        <p>1 day ago</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12 col-lg-4">
-                                                <div class="welcome-posts--">
-                                                    <div class="welcome-post style-2">
-                                                        <img src="img/bg-img/bg2.jpg" alt="" />
-                                                        <div class="post-content" data-animation="fadeInUp" data-delay="500ms" data-duration="500ms">
-                                                            <a href="#" class="tag tag-2">Celebs</a>
-                                                            <a href="#" class="post-title">Superstar spoted with new boyfriend</a>
-                                                            <p>1 day ago</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="welcome-post style-2">
-                                                        <img src="img/bg-img/bg3.jpg" alt="" />
-                                                        <div class="post-content" data-animation="fadeInUp" data-delay="750ms" data-duration="500ms">
-                                                            <a href="#" class="tag tag-3">4 Fun</a>
-                                                            <a href="#" class="post-title">Festival looks for all the party people</a>
-                                                            <p>1 day ago</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <Slide />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <Content/>
-                <Footer/>
+                <Content />
+                <Footer />
             </div>
         )
     }

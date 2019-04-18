@@ -29,7 +29,7 @@ export default class TableRowContent extends Component {
 
                 <div class="single-blog-post style-3">
                     <div class="post-thumb">
-                        {newz.image === "" ? <a href={newz.link}><img src={logo} alt="" /></a>
+                        {newz.image === "" ? <a href="#" onClick={this.onOpenPopup}><img src={logo} alt="" /></a>
                             : <a href="#" onClick={this.onOpenPopup}><img src={newz.image} alt="" /></a>}
                     </div>
                     <div class="post-data">
@@ -38,21 +38,26 @@ export default class TableRowContent extends Component {
                             <h6><div dangerouslySetInnerHTML={{ __html: newz.title }} /></h6>
                         </a>
                         <div class="post-meta">
-                            <p class="post-author">By <a href={newz.link}>VNexpress</a></p>
+                            <p class="post-author">By {newz.categories.categorySourceId === 1 ? <a href="https://vnexpress.net/" style={{ color: 'red',fontWeight:'bold' }}>Vnexpress</a>
+                                    : <a href="https://dantri.com.vn/" style={{ color: 'green',fontWeight:'bold' }}>Dân trí</a>}
+
+                           </p>
 
                             <p class="post-date">{Moment(newz.createdAt).format('MMM Do YY')}</p>
                         </div>
                     </div>
                     <Modal open={this.state.open} onClose={this.onClosePopup} styles={modals} >
                         <div >
-                        <a href={newz.link} style={{backgroundColor:'#63B8FF',padding:'10px',borderRadius:'5px',color:'#fff'}}>
-                        <img src={chain} style={{verticalAlign:'middle'}}/>&nbsp; Link đến trang nguồn</a>
+                            <a href={newz.link} style={{ backgroundColor: '#63B8FF', padding: '10px', borderRadius: '5px', color: '#fff' }}>
+                                <img src={chain} style={{ verticalAlign: 'middle' }} />&nbsp; Link đến trang nguồn</a>
                         </div>
-                        <br/>
-                        <h1 style={{borderTop:'0.5px solid #ddd',padding:'10px 0',fontFamily:"Bookman, Tahoma, Verdana"}}>
-                        <div dangerouslySetInnerHTML={{ __html: newz.title }} /></h1>
+                        <br />
+                        <h1 style={{ borderTop: '0.5px solid #ddd', padding: '10px 0', fontFamily: "Bookman, Tahoma, Verdana" }}>
+                            <div dangerouslySetInnerHTML={{ __html: newz.title }} /></h1>
                         <p >
-                            <div dangerouslySetInnerHTML={{ __html: newz.content }} style={style}/>
+                            <h6><div><div dangerouslySetInnerHTML={{ __html: newz.description }} style={{ style }} /></div></h6>
+
+                            <div dangerouslySetInnerHTML={{ __html: newz.content }} style={style} />
                         </p>
 
                     </Modal>
@@ -64,18 +69,18 @@ export default class TableRowContent extends Component {
     }
 }
 const style = {
-    margin:'0 auto',
-    padding:'10px',
-    width:'100%',
-    textAlign:'justify',
-    fontColor:'#000',
-    fontFamily:"Bookman, Tahoma, Verdana",
-    
+    margin: '0 auto',
+    padding: '10px',
+    width: '100%',
+    textAlign: 'justify',
+    fontColor: '#000',
+    fontFamily: "Bookman, Tahoma, Verdana",
+
 }
-const modals={
-    modal:{
-        borderRadius:'9px',
-        width:'700px',
+const modals = {
+    modal: {
+        borderRadius: '9px',
+        width: '700px',
     }
-    
+
 }

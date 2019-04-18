@@ -43,7 +43,7 @@ export class ManagerUser extends Component {
   }
   render() {
     const {userid}= this.props
-    console.log(userid)
+    
     return (
       <div>
         <div className="app-title">

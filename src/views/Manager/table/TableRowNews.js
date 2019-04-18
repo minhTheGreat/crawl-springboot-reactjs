@@ -25,7 +25,7 @@ class TableRowNews extends Component {
                 <td>{news.categories.categoryName}</td>
                 <td><img src={news.image}/></td>
                 <td>{Moment(news.createdAt).format('MMM Do YY')}</td>
-                <td><input type="checkbox" className="checkz" value=""/></td>
+                
                 <td>
                     <Link
                         className="btn btn-primary"

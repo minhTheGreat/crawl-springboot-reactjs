@@ -24,8 +24,7 @@ class Header extends Component {
                     {/* Navbar Right Menu*/}
                     <ul className="app-nav">
                         <li className="app-search">
-                            <input className="app-search__input" type="search" placeholder="Search" />
-                            <button className="app-search__button"><i className="fa fa-search" /></button>
+                         
                         </li>
                        
                         {/* User Menu*/}
