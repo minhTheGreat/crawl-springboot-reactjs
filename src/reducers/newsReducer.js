@@ -5,6 +5,7 @@ var initalState = {
     news: [],
     slice:[],
     slicec:[],
+    modalNews:[],
     totalPages: 1,
 };
 var findIndex = (news, id) => {
@@ -32,10 +33,11 @@ const news = (state = initalState, action) => {
         case Types.CRAWLER:
             return {
                 ...state,
-                news: [...state],
+                modalNews: action.data,
                 loading:false
                
             }
+      
         case Types.DELETE_NEWS:       
             index = findIndex(state.news,action.payload);
             state.news.splice(index,1);
@@ -43,8 +45,7 @@ const news = (state = initalState, action) => {
                 ...state,
                 news:[...state.news]
             }
-        case Types.CRAWLER:
-            return [...state]
+       
         case Types.HOME:
             return {
                 ...state,

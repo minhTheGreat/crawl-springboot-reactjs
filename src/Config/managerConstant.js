@@ -6,6 +6,7 @@ export const DELETE_USER ='DELETE_USER';
 export const FIND_USER ='FIND_USER'
 // type NEW AND CATEGORY
 export const FETCH_NEWS = 'FETCH_NEWS';
+export const SAVE_NEWS ='SAVE_NEWS'
 export const GET_NEWS='GET_NEWS';
 export const DELETE_NEWS='DELETE_NEWS';
 export const CRAWLER = 'CRAWLER';

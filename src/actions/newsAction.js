@@ -1,7 +1,6 @@
 
 import * as Types from '../Config/managerConstant';
 import API from '../utils/api';
-import APIvn from '../utils/vnexpress'
 import  history  from '../Config/history'
 
 
@@ -24,9 +23,9 @@ export const actFetchNews = (news, totalPages, totalElement) => {
 export const actCrawlNewsVnexpress = (id) => async dispatch => {
 
     try {
-        await API.get(`/news/crawl/${id}`)
+       const {data}= await API.get(`/news/crawl/${id}`)
         dispatch(actFetchNewsRequest(0,20))
-        dispatch({ type: Types.CRAWLER })
+        dispatch({ type: Types.CRAWLER,data:data })
       
     } catch (err) {
 
@@ -34,10 +33,19 @@ export const actCrawlNewsVnexpress = (id) => async dispatch => {
 }
 export const actCrawlNewsDantri=(id)=> async dispatch=>{
     try{
-        await API.get(`/news/crawl/dantri/${id}`)
+        const {data}= await API.get(`/news/crawl/dantri/${id}`)
         dispatch(actFetchNewsRequest(0,20))
-        dispatch({ type: Types.CRAWLER })
+        dispatch({ type: Types.CRAWLER,data:data })
         
+    }catch(err){
+
+    }
+}
+//save news
+export const actSaveCrawlNews=(news)=> async dispatch=>{
+    try{
+        await API.post(`/news/addnews`,news)
+        dispatch(actFetchNewsRequest(0,20))
     }catch(err){
 
     }
@@ -53,6 +61,7 @@ export const actDeleteNews= id => async dispatch =>{
 
     }
 }
+
 //find category by source id
 export const actFetchCategory=id=> async dispatch=>{
     try{
